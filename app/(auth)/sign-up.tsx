@@ -9,9 +9,10 @@ import { API_URL, useAuth } from "../context/AuthContext";
 import {  router } from "expo-router";
 
 const SignUp = () => {
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [fullname, setFullname] = useState("");
   const [phone, setPhone] = useState("");
 
   const { onRegister } = useAuth();
@@ -27,7 +28,7 @@ const SignUp = () => {
     , []);
 
   const register = async () => {
-    const result = await onRegister(email, password);
+    const result = await onRegister(firstname, lastname, email, phone, password);
     if (result && result.error) {
       alert(result.msg);
     } else {
@@ -43,11 +44,19 @@ const SignUp = () => {
           <Text style={styles.title}>Register</Text>
           <FormField
             title="Full Name"
-            value={fullname}
+            value={firstname}
             otherStyles={styles.formField}
             keyboardType="default"
             placeholder="Full Name"
-            handleChangeText={setFullname}
+            handleChangeText={setFirstname}
+          />
+          <FormField
+            title="Full Name"
+            value={lastname}
+            otherStyles={styles.formField}
+            keyboardType="default"
+            placeholder="Full Name"
+            handleChangeText={setLastname}
           />
           <FormField
             title="Email"
