@@ -1,33 +1,62 @@
+import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
-import React from 'react';
+import { Picker } from '@react-native-picker/picker';
 import CustomButton from '@/components/CustomButton';
+import Toast from 'react-native-toast-message';
 
 const CreateWallet = () => {
+  const [walletType, setWalletType] = useState('Savings');
+  const [currency, setCurrency] = useState('KES');
+  const [isActive, setIsActive] = useState(false);
+
+  const handleCreateWallet = () => {
+    Toast.show({
+      type: 'success',
+      text1: 'Wallet Created Successfully',
+      visibilityTime: 2000,
+      autoHide: true,
+    });
+  };
+
   return (
-    <View className="flex-1 justify-start items-start bg-gray-100 p-4">
-      <Text className="text-2xl font-bold text-left mb-2">Create your personal Wallet:</Text>
-      <Text className="text-lg text-left mb-1">1. Choose a personal label</Text>
+    <View className="items-start justify-start flex-1 p-4 bg-gray-100">
+      <Text className="mb-2 text-2xl font-bold text-left">Create your personal Wallet:</Text>
+      <Text className="mb-1 text-lg text-left">1. Input your personal label</Text>
       <TextInput
-        className="border border-gray-300 rounded-lg px-4 py-2 mb-4 w-full"
+        className="w-full px-4 py-2 mb-4 border border-gray-300 rounded-lg"
         placeholder="Input own label"
       />
-      <Text className="text-lg text-left mb-1">2. Choose the wallet-Type</Text>
-      <TouchableOpacity className="bg-gray-200 rounded-lg px-4 py-2 mb-4 w-full">
-        <Text className="text-left">Working</Text>
-      </TouchableOpacity>
-      <Text className="text-lg text-left mb-1">3. Choose a currency of choice</Text>
-      <TouchableOpacity className="bg-gray-200 rounded-lg px-4 py-2 mb-4 w-full">
-        <Text className="text-left">KES/EUR/USD</Text>
-      </TouchableOpacity>
-      <Text className="text-lg text-left mb-1">4. Choose to activate or deactivate</Text>
-      <TouchableOpacity className="bg-gray-200 rounded-lg px-4 py-2 mb-8 w-full">
-        <Text className="text-left">Activate / Deactivate</Text>
-      </TouchableOpacity>
-     
-     <CustomButton
+      <Text className="mb-1 text-lg text-left">2. Choose the wallet-Type</Text>
+      <Picker
+        selectedValue={walletType}
+        onValueChange={(itemValue: React.SetStateAction<string>, itemIndex: any) => setWalletType(itemValue)}
+        style={{ height: 50, width: '100%', marginBottom: 10 }}
+      >
+        <Picker.Item label="Savings" value="Savings" />
+        <Picker.Item label="Current" value="Current" />
+      </Picker>
+      <Text className="mb-1 text-lg text-left">3. Choose a currency of choice</Text>
+      <Picker
+        selectedValue={currency}
+        onValueChange={(itemValue: React.SetStateAction<string>, itemIndex: any) => setCurrency(itemValue)}
+        style={{ height: 50, width: '100%', marginBottom: 10 }}
+      >
+        <Picker.Item label="KES" value="KES" />
+        <Picker.Item label="EUR" value="EUR" />
+        <Picker.Item label="USD" value="USD" />
+      </Picker>
+      <Text className="mb-1 text-lg text-left">4. Choose to activate or deactivate</Text>
+      <Picker
+        selectedValue={isActive}
+        onValueChange={(itemValue: boolean | ((prevState: boolean) => boolean), itemIndex: any) => setIsActive(itemValue)}
+        style={{ height: 50, width: '100%', marginBottom: 10 }}
+      >
+        <Picker.Item label="Activate" value={true} />
+        <Picker.Item label="Deactivate" value={false} />
+      </Picker>
+      <CustomButton
         title="Create Wallet"
-        handlePress={() => { }
-        }
+        handlePress={handleCreateWallet}
         containerStyles={{
           width: '100%',
           padding: 10,
@@ -36,12 +65,10 @@ const CreateWallet = () => {
           justifyContent: 'center',
           marginTop: 10,
         }}
-
-        
       />
-
     </View>
   );
 };
 
 export default CreateWallet;
+
