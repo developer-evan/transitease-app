@@ -6,6 +6,13 @@ const ScreenLayout = () => {
   return (
     <Stack>
       <Stack.Screen name="notifications" options={{ headerShown: true }} />
+      
+      <Stack.Screen name="add-card" options={{ 
+        headerShown: true ,
+        title: "Add Card",        
+        }} />
+        <Stack.Screen name="create-wallet" options={{ headerShown: true, title: "Create Wallet" }} />
+
     </Stack>
   );
 };
