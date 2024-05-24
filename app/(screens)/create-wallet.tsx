@@ -1,5 +1,6 @@
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import React from 'react';
+import CustomButton from '@/components/CustomButton';
 
 const CreateWallet = () => {
   return (
@@ -22,9 +23,23 @@ const CreateWallet = () => {
       <TouchableOpacity className="bg-gray-200 rounded-lg px-4 py-2 mb-8 w-full">
         <Text className="text-left">Activate / Deactivate</Text>
       </TouchableOpacity>
-      <TouchableOpacity className="bg-blue-500 rounded-lg px-4 py-2 w-full">
-        <Text className="text-white text-center font-semibold">Create Wallet</Text>
-      </TouchableOpacity>
+     
+     <CustomButton
+        title="Create Wallet"
+        handlePress={() => { }
+        }
+        containerStyles={{
+          width: '100%',
+          padding: 10,
+          borderRadius: 5,
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginTop: 10,
+        }}
+
+        
+      />
+
     </View>
   );
 };

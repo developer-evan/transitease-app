@@ -42,7 +42,7 @@ const FormField: React.FC<FormFieldProps> = ({
           placeholderTextColor="#7B7B8B"
           onChangeText={handleChangeText}
           secureTextEntry={isPasswordField && !showPassword}
-          {...props} // Spread the rest of the props to ensure all passed props are applied
+          // {...props} // Spread the rest of the props to ensure all passed props are applied
         />
         {isPasswordField && (
           <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>

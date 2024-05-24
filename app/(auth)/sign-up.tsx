@@ -11,8 +11,7 @@ import {  router } from "expo-router";
 const SignUp = () => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [fullname, setFullname] = useState("");
@@ -29,6 +28,7 @@ const SignUp = () => {
       router.push("/sign-in");      
     }
   };
+  
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.scrollView}>

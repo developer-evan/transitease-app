@@ -28,7 +28,7 @@ const SignIn = () => {
     if (result && result.error) {
       alert(result.msg);
     } else {
-      router.push("/profile");
+      router.push("/(toptabs)");
     }
   };
   
