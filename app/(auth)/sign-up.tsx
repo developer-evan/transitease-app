@@ -11,6 +11,8 @@ import {  router } from "expo-router";
 const SignUp = () => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [fullname, setFullname] = useState("");
@@ -20,7 +22,7 @@ const SignUp = () => {
   // const navigation = useNavigation();
 
   const register = async () => {
-    const result = await onRegister(email, password);
+    const result = await onRegister(firstname, lastname, email, phone, password);
     if (result && result.error) {
       alert(result.msg);
     } else {
