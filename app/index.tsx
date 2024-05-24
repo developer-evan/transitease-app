@@ -25,7 +25,7 @@ const Welcome = () => {
                 </View>
                 
                 <CustomButton
-                  title="Continue with Email"
+                  title="Get Started"
                   handlePress={() => router.push("/(toptabs)")}
                   containerStyles={{ width: "100%", marginTop: 7 }}
                 />
