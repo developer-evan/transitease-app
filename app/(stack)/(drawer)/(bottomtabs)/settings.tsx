@@ -1,4 +1,4 @@
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import React from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -12,6 +12,9 @@ const Settings = () => {
           <View className="items-center mb-6">
             <Text className="text-3xl font-bold text-blue-500">Settings</Text>
           </View>
+          <TouchableOpacity 
+          onPress={() => router.push("/profile")}
+          >
           <View className="p-4 rounded-lg  mb-4 flex-row justify-between items-center">
             <View className="flex-row items-center">
               <Ionicons
@@ -30,6 +33,10 @@ const Settings = () => {
               color="#4B5563"
             />
           </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+          onPress={() => router.push("/notifications")}
+          >
           <View className=" p-4 rounded-lg  mb-4 flex-row justify-between items-center">
             <View className="flex-row items-center">
               <Ionicons
@@ -42,14 +49,19 @@ const Settings = () => {
                 Notifications
               </Text>
             </View>
-            <Link href="notifications">
+            
               <Ionicons
                 name="chevron-forward-outline"
                 size={24}
                 color="#4B5563"
               />
-            </Link>
+           
           </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+          onPress={() => router.push("/wallet")}
+          >
           <View className=" p-4 rounded-lg  mb-4 flex-row justify-between items-center">
             <View className="flex-row items-center">
               <Ionicons
@@ -62,14 +74,18 @@ const Settings = () => {
                 Your Wallet
               </Text>
             </View>
-            <Link href="wallet">
+            
               <Ionicons
                 name="chevron-forward-outline"
                 size={24}
                 color="#4B5563"
               />
-            </Link>
+            
           </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+          onPress={() => router.push("/settings")}
+          >
           <View className=" p-4 rounded-lg  mb-4 flex-row justify-between items-center">
             <View className="flex-row items-center">
               <Ionicons
@@ -88,6 +104,11 @@ const Settings = () => {
               color="#4B5563"
             />
           </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+          onPress={() => router.push("/service-center")}
+          >
+
           <View className=" p-4 rounded-lg  mb-4 flex-row justify-between items-center">
             <View className="flex-row items-center">
               <Ionicons
@@ -106,9 +127,14 @@ const Settings = () => {
               color="#4B5563"
             />
           </View>
+          </TouchableOpacity>
         </View>
+        
         <View className="items-center my-8">
-          <TouchableOpacity className=" p-4 rounded-full ">
+          <TouchableOpacity className=" p-4 rounded-full "
+          onPress={() => router.push("/")}
+          
+          >
             <Ionicons name="log-out-outline" size={32} color="#4B5563" />
           </TouchableOpacity>
           <Text className="mt-4 text-lg font-semibold text-blue-500">
