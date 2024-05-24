@@ -23,13 +23,13 @@ export const CustomDrawerContent = (props: any) => {
                 height: 50,
                 width: 50,
               }}
-              src="https://www.louismuriuki.dev/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flui.d6485f5e.jpg&w=3840&q=75"
+              src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541"
               alt="Lui"
               className=""
             />
             <View className="flex flex-col my-4">
               <Text className="font-bold text-lg dark:text-white text-dark">
-                Nutcase
+                Evans Wamiti
               </Text>
               <Text className="font-semibold text-base dark:text-white text-dark">
                 Name
@@ -60,7 +60,7 @@ export const CustomDrawerContent = (props: any) => {
             name="night-clear"
             onPress={toggleColorScheme}
             size={28}
-            color={colorScheme === "dark" ? "white" : "black"}
+            color={(colorScheme === "dark" || colorScheme === undefined) ? "white" : "black"}
             className="p-3"
           />
         )}

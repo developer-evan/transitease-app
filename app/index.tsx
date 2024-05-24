@@ -26,7 +26,8 @@ const Welcome = () => {
                 
                 <CustomButton
                   title="Get Started"
-                  handlePress={() => router.push("/(toptabs)")}
+                  // handlePress={() => router.push("/(toptabs)")}
+                  handlePress={() => router.push("/sign-in")}
                   containerStyles={{ width: "100%", marginTop: 7 }}
                 />
             </View>            

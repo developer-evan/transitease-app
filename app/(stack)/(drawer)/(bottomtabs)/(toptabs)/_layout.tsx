@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import React, { ReactNode } from "react";
 import {
   MaterialTopTabNavigationEventMap,
@@ -14,6 +14,7 @@ import {
   Ionicons,
 } from "@expo/vector-icons";
 import CustomButton from "@/components/CustomButton";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const { Navigator } = createMaterialTopTabNavigator();
 
@@ -27,6 +28,8 @@ export const MaterialTopTabs = withLayoutContext<
 const RootLayout = () => {
   const [hideAccount, setHideAccount] = React.useState(true);
   return (
+    <SafeAreaView>
+      <ScrollView>
     <View className="px-4 py-4 bg-white flex-1  h-full">
       <View className="bg-[#1F41BB] rounded-2xl px-6 py-6 ">
         <Text className="text-2xl font-bold text-white">
@@ -149,18 +152,29 @@ const RootLayout = () => {
 
       <View className="flex-row justify-between py-4">
         <Text className="text-md font-bold">Recent Transactions</Text>
-        <Link href="/transactions">
+        {/* <Link href="/transactions">
           <Text className="text-md font-bold text-blue-500">View All</Text>
           <Ionicons name="chevron-forward-outline" size={20} color="#1F41BB" />
 
-        </Link>
+        </Link> */}
         </View>
 
-        <View className="flex-col items-center">
-          <Text className="text-lg font-bold">Ksh. 5,000.00</Text>
-          <Text className="text-sm">Wallet Balance</Text>
+        <View className="flex-col items-start py-6">
+          <Text className="text-lg font-bold">Embassava Motors</Text>
+          <Text className="text-sm text-grey-800">
+            Dec 2, 2024 . 12:00 PM
+          </Text>
+          </View>
+
+          <View className="flex-col items-start">
+          <Text className="text-lg font-bold">Uber</Text>
+          <Text className="text-sm text-grey-800">
+            Dec 2, 2024 . 12:00 PM
+          </Text>
           </View>
     </View>
+    </ScrollView>
+    </SafeAreaView>
   );
 };
 
