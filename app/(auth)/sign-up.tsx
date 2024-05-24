@@ -9,45 +9,44 @@ import { API_URL, useAuth } from "../context/AuthContext";
 import {  router } from "expo-router";
 
 const SignUp = () => {
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [fullname, setFullname] = useState("");
+  // const [fullname, setFullname] = useState("");
   const [phone, setPhone] = useState("");
 
   const { onRegister } = useAuth();
   // const navigation = useNavigation();
-
-  useEffect(() => {
-    const testCall = async () => {
-      const result = await axios.get(`${API_URL}/`);
-        console.log(result.data);
-    }
-    testCall();
-    }
-    , []);
 
   const register = async () => {
     const result = await onRegister(email, password);
     if (result && result.error) {
       alert(result.msg);
     } else {
-      router.push("/home");
-      
+      router.push("/sign-in");      
     }
   };
-
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.scrollView}>
         <View style={styles.container}>
           <Text style={styles.title}>Register</Text>
           <FormField
-            title="Full Name"
-            value={fullname}
+            title="First Name"
+            value={firstname}
             otherStyles={styles.formField}
             keyboardType="default"
             placeholder="Full Name"
-            handleChangeText={setFullname}
+            handleChangeText={setFirstname}
+          />          
+          <FormField
+            title="Last Name"
+            value={lastname}
+            otherStyles={styles.formField}
+            keyboardType="default"
+            placeholder="Last Name"
+            handleChangeText={setLastname}
           />
           <FormField
             title="Email"

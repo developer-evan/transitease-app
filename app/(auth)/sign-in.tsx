@@ -21,21 +21,14 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const { onLogin } = useAuth();
 
-  useEffect(() => {
-    const testCall = async () => {
-      const result = await axios.get(`${API_URL}/`);
-        console.log(result.data);
-    }
-    testCall();
-    }
-    , []);
-
+ 
   const login = async () => {
     const result = await onLogin(email, password);
+    // console.log(result, "result");
     if (result && result.error) {
       alert(result.msg);
     } else {
-      router.push("/home");
+      router.push("/profile");
     }
   };
   

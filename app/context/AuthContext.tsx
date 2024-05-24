@@ -10,9 +10,9 @@ interface AuthProps {
 }
 
 const TOKEN_KEY = "my-jwt";
-export const API_URL = "http://localhost:3000";
+export const API_URL = "http://192.168.100.114:4000";
 const AuthContext = createContext<AuthProps>({
-  authState: { token: null, authenticated: null },
+  authState: { token: null, authenticated: null},
   onRegister: () => Promise.resolve(),
   onLogin: () => Promise.resolve(),
   onLogout: () => Promise.resolve(),
@@ -47,7 +47,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const register = async (email: string, password: string) => {
     try {
-      return await axios.post(`${API_URL}/signup`, { email, password });
+      const result =  await axios.post(`${API_URL}/signup`, { email, password });
+      return result;
     } catch (e) {
       return {
         error: true,
@@ -55,10 +56,17 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       };
     }
   };
+  // isa.moore3y@example.com
+  // PasswordPQR!
 
+  
   const login = async (email: string, password: string) => {
+    console.log("login called", email, password);
     try {
       const result = await axios.post(`${API_URL}/login`, { email, password });
+      // console.log("result");
+      console.log("resultui", result);
+
       setAuthState({
         token: result.data.token,
         authenticated: true,
@@ -67,7 +75,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         "Authorization"
       ] = `Bearer ${result.data.token}`;
       await SecureStore.setItemAsync(TOKEN_KEY, result.data.token);
+      return result;
     } catch (e) {
+      console.log("error", e);
       return {
         error: true,
         msg: (e as any).response.data.msg,
