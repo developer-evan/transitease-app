@@ -12,6 +12,9 @@ const ScreenLayout = () => {
         title: "Add Card",        
         }} />
         <Stack.Screen name="create-wallet" options={{ headerShown: true, title: "Create Wallet" }} />
+        <Stack.Screen name="fund-wallet" options={{ headerShown: true, title: "Fund Wallet" }} />
+        <Stack.Screen name="edit-profile" options={{ headerShown: true, title: "Edit Profile" }} />
+
 
     </Stack>
   );

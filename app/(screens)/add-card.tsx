@@ -3,8 +3,22 @@ import React from 'react';
 import { images } from '@/constants';
 import CustomButton from '@/components/CustomButton';
 import { router } from 'expo-router';
+// import Toast from 'react-native-toast-message';
 
 const AddCard = () => {
+  const handleSend = () => {
+    // addCard().then(success => {
+      
+      const success = true; // Replace 'true' with the actual value
+      // alert("Card Added Successfully");
+      if (success) {
+        alert("Card Added Successfully");
+        router.push('/wallet');
+      } else {
+        alert("Error Occured");
+      }
+    // });
+  };
   return (
     <View className="flex-1 justify- items-center bg-gray-100 p-6">
      
@@ -49,7 +63,7 @@ const AddCard = () => {
       </View>
       <CustomButton
                   title="Add Card"
-                  handlePress={() => router.push("/(toptabs)")}
+                  handlePress={handleSend}
                   containerStyles={{ width: "100%", marginTop: 7 }}
                 />
       

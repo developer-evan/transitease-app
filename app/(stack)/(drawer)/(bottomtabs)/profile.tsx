@@ -22,7 +22,7 @@ const Profile = () => {
             />
             <View className=" flex flex-row items-center gap-3">
               <Text className="text-xl font-semibold text-gray-800">
-                User Tester 
+                Evans Mogeni
               </Text>
               <Link href="/edit-profile">
               <Ionicons
@@ -30,7 +30,7 @@ const Profile = () => {
                 name="pencil-outline"              
                 size={16}
                 color="#6B7280"
-                className="mr-4 "
+                className="mr-4"
               />
               </Link>
             </View>

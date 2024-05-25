@@ -7,24 +7,28 @@ import Toast from 'react-native-toast-message';
 
 const Wallet = () => {
   const [hideAccount, setHideAccount] = React.useState(true);
-  const balance = 5000;
+  const balance = 500.01;
 
   const handleSend = () => {
-    Toast.show({
-      type: 'success',
-      text1: 'Payment successful',
-      visibilityTime: 2000,
-      autoHide: true,
-    });
+    const success = true; // Replace 'true' with the actual value
+    // alert("Card Added Successfully");
+    if (success) {
+      alert("Payment Successfully");
+      router.push('/(toptabs)');
+    } else {
+      alert("Error Occured");
+    }
   };
   
   return (
     <View className="flex-1 p-4 bg-blue-50">
       <View className="bg-[#1F41BB] rounded-2xl px-6 py-6 mb-10">
-        <Text className="text-3xl font-bold text-center text-white">
+        <View className="flex-row items-center justify-between">
+          <View>
+        <Text className="text-3xl font-bold  text-white">
           Account No.
         </Text>
-        <View className="flex-row items-center justify-center gap-3">
+        <View className="flex-row  items-center gap-3">
           <Text className="text-lg text-center text-white">
             {hideAccount ? "0728  ****  248" : "0728 3666 2248"}
           </Text>
@@ -36,6 +40,18 @@ const Wallet = () => {
             />
           </TouchableOpacity>
         </View>
+        </View>
+        <View>
+          <TouchableOpacity onPress={() => router.push("/fund-wallet")}
+          className="flex-col items-center"
+          
+          >
+          <Ionicons name="wallet-outline" size={26} color="white" />
+          <Text className="font-bold text-white text-md">Fund Wallet</Text>
+          </TouchableOpacity>
+        </View>
+        </View>
+
         <View className="flex-row items-center justify-between py-6">
           <View>
             <Text className="text-lg font-bold text-white">

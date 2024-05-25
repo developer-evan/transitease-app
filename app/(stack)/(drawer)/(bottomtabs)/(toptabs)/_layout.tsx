@@ -120,7 +120,7 @@ const RootLayout = () => {
               <Text className="text-lg font-bold">Embassava Motors</Text>
               <Text className="text-sm text-gray-600">Dec 2, 2024 . 12:00 PM</Text>
             </View>
-            <Text className="text-xl font-bold text-red-600">-$156.00</Text>
+            <Text className="text-xl font-bold text-red-600">-Ksh.156.00</Text>
           </View>
 
           <View className="flex-row items-center justify-between py-6 bg-white rounded-lg px-4 shadow-md">
@@ -128,7 +128,7 @@ const RootLayout = () => {
               <Text className="text-lg font-bold">Uber</Text>
               <Text className="text-sm text-gray-600">Jan 2, 2024 . 12:00 PM</Text>
             </View>
-            <Text className="text-xl font-bold text-red-600">-$87.00</Text>
+            <Text className="text-xl font-bold text-red-600">-Ksh.87.00</Text>
           </View>
         </View>
       </ScrollView>
