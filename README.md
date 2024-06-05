@@ -41,4 +41,5 @@ Future plans
 ## Contact Information
 * Email : 
 1. wamiti8711@gmail.com
+2. evansmogeni254@gmail.com
 *****
