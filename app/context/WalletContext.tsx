@@ -87,7 +87,6 @@ export const WalletProvider = ({ children }: { children: React.ReactNode }) => {
       };
     }
   };
-
   const value = {
     createWallet,
     getWalletTransactions,
